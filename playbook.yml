@@ -3,6 +3,7 @@
     - vars/main.yml
   roles:
     - role: geerlingguy.git
+    - role: geerlingguy.nodejs
     - role: geerlingguy.ruby
       ruby_install_from_source: true
       ruby_download_url: https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
