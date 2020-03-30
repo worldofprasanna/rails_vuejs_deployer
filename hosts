@@ -1,2 +1,8 @@
 [web]
 <ip address of the machine>
+
+[db]
+<ip address of the db machine>
+
+[ui]
+<ip address of the ui machine>
