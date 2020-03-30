@@ -12,30 +12,30 @@ Ansible is used to setup the virtual machine with the necessary tools and Capist
 
 - [deployer](#deployer)
   - [Table of Contents](#table-of-contents)
-  - [Install](#install)
+  - [Install the necessary dependencies in your local machine](#install-the-necessary-dependencies-in-your-local-machine)
   - [Usage](#usage)
   - [Maintainers](#maintainers)
   - [Contributing](#contributing)
   - [License](#license)
 
-## Install
+## Install the necessary dependencies in your local machine
 
 1. Install ansible, ansible-galaxy
 2. Install the dependent roles using,
 `ansible-galaxy install -r requirements.yml`
-3. Update the ip address of the machine in `hosts` file
+3. Update the ip address of the [web, db, ui] machine in `hosts` file
 
 ## Usage
+Note: all this has to be done from the rails repository
 
-1. To setup a new machine,
-`ansible-playbook -i ./hosts playbook.yml -u root`
-This will install ruby, postgres and setup the shared files used by capistrano
-
-2. To update the configuration for the api alone (changing the env variable, etc),
-`ansible-playbook -i ./hosts api.yml -u root`
-
-3. To deploy the rails app (using capistrano). change directory to the rails app,
-`bundle exec cap production deploy`
+1. Use the installer script, to clone this repo into the rails app repo.
+`cd <rails-app>; curl -sSl https://raw.githubusercontent.com/worldofprasanna/rails_vuejs_deployer/master/installer.sh | bash`
+2. To provision the new machine,
+`rails provision`
+3. To deploy the rails app,
+`rails deploy-api`
+4. To deploy the ui,
+`rails deploy-ui`
 
 ## Maintainers
 
