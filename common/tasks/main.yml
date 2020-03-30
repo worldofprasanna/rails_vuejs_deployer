@@ -1,0 +1,3 @@
+---
+  - name: Update apt-get
+    shell: apt-get update -y
