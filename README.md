@@ -57,3 +57,4 @@ MIT © 2020 Prasanna V
 ## TODO
 
 1. Don't provision the machine as root user. Create dedicated user with the corresponding permission.
+2. Postgresql is failing for the first time.
