@@ -13,19 +13,22 @@ rm ./deployer/installer.sh
 # Remove deployer/.git folder to make the clone part of the Rails app itself
 rm -rf ./deployer/.git && \
 
+# Move the ansible.cfg file to rails app level
+mv ./deployer/ansible.cfg .
+
 # Add new tasks to Rakefile
 cat <<EOT >> ./Rakefile
 
 task :provision do
-  sh "ansible-playbook -i ./deployer/hosts ./deployer/playbook.yml"
+  sh "ansible-playbook -i ./deployer/hosts ./deployer/playbook.yml -u root"
 end
 
-task :deploy-api do
-  sh "ansible-playbook -i ./deployer/hosts ./deployer/api.yml"
+task :deploy_api do
+  sh "ansible-playbook -i ./deployer/hosts ./deployer/api.yml -u root"
 end
 
-task :deploy-ui do
-  sh "ansible-playbook -i ./deployer/hosts ./deployer/ui.yml"
+task :deploy_ui do
+  sh "ansible-playbook -i ./deployer/hosts ./deployer/ui.yml -u root"
 end
 EOT
 
