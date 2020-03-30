@@ -30,11 +30,12 @@ Note: all this has to be done from the rails repository
 
 1. Use the installer script, to clone this repo into the rails app repo.
 `cd <rails-app>; curl -sSl https://raw.githubusercontent.com/worldofprasanna/rails_vuejs_deployer/master/installer.sh | bash`
-2. To provision the new machine,
+2. Modify the `vars/main.yml` with the necessary values for secrets. Note: This will use [ansible-vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html)
+3. To provision the new machine,
 `rails provision`
-3. To deploy the rails app,
+4. To deploy the rails app,
 `rails deploy-api`
-4. To deploy the ui,
+5. To deploy the ui,
 `rails deploy-ui`
 
 ## Maintainers
